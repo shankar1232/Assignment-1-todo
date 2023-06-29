@@ -113,7 +113,7 @@ app.get("/todos/", async (request, response) => {
           status === "IN PROGRESS" ||
           status === "DONE"
         ) {
-          getTodosQuery = `select * from todo where category = '${category}' adn status = '${status}';`;
+          getTodosQuery = `select * from todo where category = '${category}' and status = '${status}';`;
           data = await database.all(getTodosQuery);
           response.send(data.map((eachItem) => outPutResult(eachItem)));
         } else {
