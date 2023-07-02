@@ -79,6 +79,8 @@ app.get("/todos/", async (request, response) => {
   let getTodosQuery = "";
   const { search_q = "", priority, status, category } = request.query;
 
+  //switch case */
+
   switch (true) {
     case hasPriorityAndStatusProperties(request.query):
       if (priority === "HIGH" || priority === "MEDIUM" || priority === "LOW") {
@@ -261,7 +263,7 @@ app.put("/todos/:todoId/", async (request, response) => {
   let updateColumn = "";
   const requestBody = request.body;
   console.log(requestBody);
-  const previousTodoQuery = `SELECT * FROM todo WHERE id = ${todo};`;
+  const previousTodoQuery = `SELECT * FROM todo WHERE id = ${todoId};`;
   const previousTodo = await database.get(previousTodoQuery);
   const {
     todo = previousTodo.todo,
